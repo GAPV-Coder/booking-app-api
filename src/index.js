@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import hotelsRoute from "./routes/hotels.routes.js";
 import authRoute from "./routes/auth.routes.js";
+import usersRoute from "./routes/user.routes.js";
 
 const app = express();
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
+app.use("/api/users", usersRoute);
 
 app.use((err, req, res, next) => {
 	const errorStatus = err.status || 500;
