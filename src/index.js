@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 import hotelsRoute from "./routes/hotels.routes.js";
 import authRoute from "./routes/auth.routes.js";
 import usersRoute from "./routes/user.routes.js";
@@ -14,6 +15,7 @@ import _connect from "./database/db.js";
 // Middlewares
 app.use(cookieParser());
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
